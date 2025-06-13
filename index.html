@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Portfólio Pessoal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Davi Braz</h1>
+    <p>Desenvolvedor Front-end</p>
+    <nav>
+      <button id="toggle-tema">Modo Escuro</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <p>Olá! Sou Davi, um desenvolvedor front-end dedicado a construir experiências digitais modernas e inclusivas. Para mim, cada novo projeto é uma chance de aprender e aplicar novas tecnologias, especialmente quando são desafiadoras e instigantes.</p>
+    </section>
+
+    <section id="hobbies">
+      <h2>Meus Hobbies</h2>
+      <ul>
+        <li>Jogar futebol</li>
+        <li>Aprender um novo idioma</li>
+        <li>Assistir séries e filmes</li>
+        <li>Viajar e conhecer novas culturas</li>
+        <li>Servir na igreja</li>
+      </ul>
+    </section>
+
+    <section id="links-uteis">
+      <h2>Meus Links</h2>
+      <ul>
+        <li><a href="https://github.com/davibrazs" target="_blank">Meu GitHub</a></li>
+        <li><a href="https://www.canva.com/design/DAFGoCd3kjw/PnH3TrwLcioaImcO_nX63g/view" target="_blank">Meu Currículo</a></li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Fale comigo</h2>
+      <form id="contato-form">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+        <button type="submit" id="submit-btn">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Davi Braz - Meu Portfólio
+  </footer>
+
+  <script>
+    const btnTema = document.getElementById('toggle-tema');
+    btnTema.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      btnTema.textContent = document.body.classList.contains('dark') ? 'Modo Claro' : 'Modo Escuro';
+    });
+
+    const form = document.getElementById('contato-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      if (!nome || !email || !mensagem) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+      if (!email.includes('@')) {
+        alert("Por favor, insira um e-mail válido.");
+        return;
+      }
+
+      alert(`Obrigado pela mensagem, ${nome}! Em breve entrarei em contato.`);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
